@@ -13,7 +13,7 @@ class BasePage:
 
     def safe_execute(self, action, action_name: str, *args):
         try:
-            log_message(self.logger, f"Execution Action {action_name} with arguments {args}", LogLevel.INFO)
+            log_message(self.logger, f"Execute Action {action_name} with arguments {args}", LogLevel.INFO)
             action(*args)
         except Exception as e:
             log_message(self.logger, f"Action Failed {action_name} with arguments {args}", LogLevel.ERROR)
