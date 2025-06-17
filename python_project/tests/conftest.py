@@ -12,7 +12,7 @@ from python_project.page_objects.main_page import MainPage
 
 @pytest.fixture
 def setup_playwright(playwright, request):
-    headed = request.config.getoption("--headless", default=False)
+    headed = request.config.getoption("--headed", default=False)
     browser = playwright.chromium.launch(headless=not headed)
     page = browser.new_page()
     try:

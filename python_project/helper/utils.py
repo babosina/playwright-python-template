@@ -1,5 +1,3 @@
-# logs
-# screenshots
 from enum import Enum
 
 import allure
@@ -35,7 +33,7 @@ def log_message(logger, message: str, level: LogLevel, attach_to_allure=True):
 
 def take_screenshot(page, name: str = "screenshot"):
     try:
-        screenshot_data = page.screenshot(type="png")
+        screenshot_data = page.page.screenshot(type="png")
         allure.attach(
             screenshot_data,
             name=name,

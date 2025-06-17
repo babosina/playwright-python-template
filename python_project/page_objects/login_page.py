@@ -13,6 +13,7 @@ class LoginPage(BasePage):
         self.username_field = self.page.locator("#username")
         self.password_field = self.page.locator("#password")
         self.login_button = self.page.get_by_role("button", name="Login")
+        self.alert_message = self.page.locator("#flash")
 
     def login(self, username: str, password: str):
         log_message(self.logger, "Perform Login", level=LogLevel.INFO)
@@ -26,3 +27,6 @@ class LoginPage(BasePage):
             return None
 
         return MainPage(self.page)
+
+    def get_alert_message(self, error_message: str):
+        return self.alert_message.locator(f"//div/*[contains(text(), '{error_message}')]")
